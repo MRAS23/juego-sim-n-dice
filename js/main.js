@@ -33,3 +33,17 @@ document.querySelector("#boton-comenzar").onclick = function (event) {
 
   event.preventDefault();
 };
+
+contadorClicks = 0;
+let $cuadradoRojo = document.querySelector(".rojo");
+let $cuadradoAzul = document.querySelector(".azul");
+let $cuadradoVerde = document.querySelector(".verde");
+let $cuadradoAmarillo = document.querySelector(".amarillo");
+$cuadradoRojo.addEventListener("click", clickeado);
+$cuadradoAzul.addEventListener("click", clickeado);
+$cuadradoVerde.addEventListener("click", clickeado);
+$cuadradoAmarillo.addEventListener("click", clickeado);
+
+function clickeado() {
+  contadorClicks++;
+}
