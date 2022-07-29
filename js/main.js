@@ -56,5 +56,32 @@ function generaSecuenciaJugador(color) {
     secuenciaJugador.push("amarillo");
   }
 
+  devuelveResultado();
+
   return false;
+}
+
+function devuelveResultado() {
+  let contadorCoincidencias = 0;
+  for (let i = 0; i < secuenciaPC.length; i++) {
+    if (comparaColoresArray(secuenciaJugador[i], secuenciaPC[i])) {
+      contadorCoincidencias++;
+    }
+  }
+  if (contadorCoincidencias === secuenciaPC.length) {
+    console.log("Correcto!");
+    generaSecuenciaPC();
+    secuenciaJugador = [];
+    //faltaria agregar un cartel que actilce en que ronda vas.
+  } else {
+    console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y volver a empezar
+  }
+}
+
+function comparaColoresArray(color1, color2) {
+  if (color1 === color2) {
+    return true;
+  } else {
+    return false;
+  }
 }
