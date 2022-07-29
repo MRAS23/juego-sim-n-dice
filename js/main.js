@@ -58,10 +58,3 @@ function generaSecuenciaJugador(color) {
 
   return false;
 }
-
-/* $cuadradoRojo.addEventListener("click", () => clickeado(1));
-function clickeado(color) {
-  if (color === 1) {
-    secuenciaJugador.push("rojo");
-  }
-} */
