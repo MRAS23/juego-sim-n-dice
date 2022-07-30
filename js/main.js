@@ -23,6 +23,7 @@ function generaSecuenciaPC() {
   } else if (nuevoElementoSecuenciaPC === 4) {
     secuenciaPC.push("amarillo");
   }
+  reproducirSecuenciaPC();
 
   return secuenciaPC;
 }
@@ -55,3 +56,68 @@ function generaSecuenciaJugador(color) {
   } else if (color === 4) {
     secuenciaJugador.push("amarillo");
   }
+
+  devuelveResultado();
+
+  return false;
+}
+
+function devuelveResultado() {
+  let contadorCoincidencias = 0;
+  for (let i = 0; i < secuenciaPC.length; i++) {
+    if (comparaColoresArray(secuenciaJugador[i], secuenciaPC[i])) {
+      contadorCoincidencias++;
+    }
+  }
+  if (contadorCoincidencias === secuenciaPC.length) {
+    console.log("Correcto!");
+    generaSecuenciaPC();
+    secuenciaJugador = [];
+    //faltaria agregar un cartel que actualice en que ronda vas.
+  } else {
+    console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
+  }
+}
+
+function comparaColoresArray(color1, color2) {
+  if (color1 === color2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function activarCuadrado(color) {
+  if (color === "rojo") {
+    $cuadradoRojo.classList.add("cuadrado-activo");
+    setTimeout(() => {
+      $cuadradoRojo.classList.remove("cuadrado-activo");
+    }, 300);
+  }
+  if (color === "azul") {
+    $cuadradoAzul.classList.add("cuadrado-activo");
+    setTimeout(() => {
+      $cuadradoAzul.classList.remove("cuadrado-activo");
+    }, 300);
+  }
+  if (color === "verde") {
+    $cuadradoVerde.classList.add("cuadrado-activo");
+    setTimeout(() => {
+      $cuadradoVerde.classList.remove("cuadrado-activo");
+    }, 300);
+  }
+  if (color === "amarillo") {
+    $cuadradoAmarillo.classList.add("cuadrado-activo");
+    setTimeout(() => {
+      $cuadradoAmarillo.classList.remove("cuadrado-activo");
+    }, 300);
+  }
+}
+
+function reproducirSecuenciaPC() {
+  for (let i = 0; i < secuenciaPC.length; i++) {
+    setTimeout(() => {
+      activarCuadrado(secuenciaPC[i]);
+    }, (i + 1) * 600);
+  }
+}
