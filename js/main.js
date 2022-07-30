@@ -25,15 +25,16 @@ function generaSecuenciaPC() {
   return secuenciaPC;
 }
 
-document.querySelector("#boton-comenzar").onclick = function (event) {
+function iniciaJuego() {
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML = 0;
-
   generaSecuenciaPC();
-
   ocultarBotonJugar();
-
   console.log(secuenciaPC);
+}
+
+document.querySelector("#boton-comenzar").onclick = function (event) {
+  iniciaJuego();
 
   event.preventDefault();
 };
@@ -150,7 +151,7 @@ function ocultarBotonVolverJugar() {
 document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
   secuenciaJugador = [];
   secuenciaPC = [];
-  mostrarBotonJugar();
+  iniciaJuego();
   ocultarBotonVolverJugar();
 
   event.preventDefault();
