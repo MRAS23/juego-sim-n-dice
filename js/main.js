@@ -77,8 +77,7 @@ function devuelveResultado() {
     contadorRondas();
     generaSecuenciaPC();
     secuenciaJugador = [];
-    //faltaria agregar un cartel que actualice en que ronda vas.
-  } else {
+  } else if (secuenciaJugador.length === secuenciaPC.length) {
     console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
     mostrarBotonVolverJugar();
   }
