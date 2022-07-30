@@ -30,6 +30,9 @@ function generaSecuenciaPC() {
 
 document.querySelector("#boton-comenzar").onclick = function (event) {
   generaSecuenciaPC();
+
+  document.querySelector("#boton-comenzar").className = "oculto";
+
   console.log(secuenciaPC);
 
   event.preventDefault();

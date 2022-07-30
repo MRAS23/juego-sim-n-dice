@@ -45,3 +45,7 @@ body {
 .cuadrado-activo {
   filter: brightness(200%);
 }
+
+.oculto {
+  display: none;
+}
