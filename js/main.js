@@ -31,7 +31,7 @@ document.querySelector("#boton-comenzar").onclick = function (event) {
 
   generaSecuenciaPC();
 
-  document.querySelector("#boton-comenzar").className = "oculto";
+  ocultarBotonJugar();
 
   console.log(secuenciaPC);
 
@@ -131,3 +131,20 @@ function contadorRondas() {
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML++;
 }
+
+function mostrarBotonJugar() {
+  document.querySelector("#boton-comenzar").className = "";
+}
+
+function ocultarBotonJugar() {
+  document.querySelector("#boton-comenzar").className = "oculto";
+}
+
+function mostrarBotonVolverJugar() {
+  document.querySelector("#boton-volver-a-jugar").className = "";
+}
+
+function ocultarBotonVolverJugar() {
+  document.querySelector("#boton-volver-a-jugar").className = "oculto";
+}
+
