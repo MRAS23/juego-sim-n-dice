@@ -55,6 +55,3 @@ function generaSecuenciaJugador(color) {
   } else if (color === 4) {
     secuenciaJugador.push("amarillo");
   }
-
-  return false;
-}

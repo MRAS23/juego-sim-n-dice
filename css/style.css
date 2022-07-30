@@ -41,3 +41,7 @@ body {
 .cuadrado:active {
   filter: brightness(200%);
 }
+
+.cuadrado-activo {
+  filter: brightness(200%);
+}
