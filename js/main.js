@@ -26,6 +26,9 @@ function generaSecuenciaPC() {
 }
 
 document.querySelector("#boton-comenzar").onclick = function (event) {
+  let rondas = document.querySelector(".rondas");
+  rondas.innerHTML = 0;
+
   generaSecuenciaPC();
 
   document.querySelector("#boton-comenzar").className = "oculto";
@@ -71,6 +74,8 @@ function devuelveResultado() {
   }
   if (contadorCoincidencias === secuenciaPC.length) {
     console.log("Correcto!");
+    contadorRondas();
+
     generaSecuenciaPC();
     secuenciaJugador = [];
     //faltaria agregar un cartel que actualice en que ronda vas.
@@ -120,4 +125,9 @@ function reproducirSecuenciaPC() {
       activarCuadrado(secuenciaPC[i]);
     }, (i + 1) * 600);
   }
+}
+
+function contadorRondas() {
+  let rondas = document.querySelector(".rondas");
+  rondas.innerHTML++;
 }
