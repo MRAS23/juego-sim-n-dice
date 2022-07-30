@@ -31,7 +31,7 @@ document.querySelector("#boton-comenzar").onclick = function (event) {
 
   generaSecuenciaPC();
 
-  document.querySelector("#boton-comenzar").className = "oculto";
+  ocultarBotonJugar();
 
   console.log(secuenciaPC);
 
@@ -75,12 +75,12 @@ function devuelveResultado() {
   if (contadorCoincidencias === secuenciaPC.length) {
     console.log("Correcto!");
     contadorRondas();
-
     generaSecuenciaPC();
     secuenciaJugador = [];
     //faltaria agregar un cartel que actualice en que ronda vas.
   } else {
     console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
+    mostrarBotonVolverJugar();
   }
 }
 
@@ -131,3 +131,28 @@ function contadorRondas() {
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML++;
 }
+
+function mostrarBotonJugar() {
+  document.querySelector("#boton-comenzar").className = "";
+}
+
+function ocultarBotonJugar() {
+  document.querySelector("#boton-comenzar").className = "oculto";
+}
+
+function mostrarBotonVolverJugar() {
+  document.querySelector("#boton-volver-a-jugar").className = "";
+}
+
+function ocultarBotonVolverJugar() {
+  document.querySelector("#boton-volver-a-jugar").className = "oculto";
+}
+
+document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
+  secuenciaJugador = [];
+  secuenciaPC = [];
+  mostrarBotonJugar();
+  ocultarBotonVolverJugar();
+
+  event.preventDefault();
+};
