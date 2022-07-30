@@ -11,9 +11,6 @@ let secuenciaPC = [];
 function generaSecuenciaPC() {
   let nuevoElementoSecuenciaPC = generaNumeroAleatorio();
 
-  /* secuencia.push(nuevoElementoSecuencia);
-  1:rojo 2:azul 3:verde 4:amarillo */
-
   if (nuevoElementoSecuenciaPC === 1) {
     secuenciaPC.push("rojo");
   } else if (nuevoElementoSecuenciaPC === 2) {
