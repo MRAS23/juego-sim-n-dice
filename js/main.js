@@ -75,12 +75,12 @@ function devuelveResultado() {
   if (contadorCoincidencias === secuenciaPC.length) {
     console.log("Correcto!");
     contadorRondas();
-
     generaSecuenciaPC();
     secuenciaJugador = [];
     //faltaria agregar un cartel que actualice en que ronda vas.
   } else {
     console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
+    mostrarBotonVolverJugar();
   }
 }
 
@@ -148,3 +148,11 @@ function ocultarBotonVolverJugar() {
   document.querySelector("#boton-volver-a-jugar").className = "oculto";
 }
 
+document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
+  secuenciaJugador = [];
+  secuenciaPC = [];
+  mostrarBotonJugar();
+  ocultarBotonVolverJugar();
+
+  event.preventDefault();
+};
