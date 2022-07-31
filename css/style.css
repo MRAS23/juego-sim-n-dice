@@ -26,38 +26,52 @@ body {
 
 .rojo {
   background-color: transparent;
-  border: rgb(166, 0, 0) 0.5em solid;
-  box-shadow: 0 0 3em 0 rgb(166, 0, 0), inset 0 0 7em 0 rgb(166, 0, 0);
+  border: rgb(255, 0, 92) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(255, 0, 92), inset 0 0 7em 0 rgb(255, 0, 92);
+  opacity: 0.6;
 }
 
 .azul {
   background-color: transparent;
-  border: rgb(0, 20, 131) 0.5em solid;
-  box-shadow: 0 0 3em 0 rgb(0, 20, 131), inset 0 0 7em 0 rgb(0, 20, 131);
+  border: rgb(0, 111, 255) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(0, 111, 255), inset 0 0 7em 0 rgb(0, 111, 255);
+  opacity: 0.6;
 }
 
 .verde {
   background-color: transparent;
-  border: rgb(12, 137, 0) 0.5em solid;
-  box-shadow: 0 0 3em 0 rgb(12, 137, 0), inset 0 0 7em 0 rgb(12, 137, 0);
+  border: rgb(104, 255, 0) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(104, 255, 0), inset 0 0 7em 0 rgb(104, 255, 0);
+  opacity: 0.6;
 }
 
 .amarillo {
   background-color: transparent;
-  border: rgb(197, 186, 29) 0.5em solid;
-  box-shadow: 0 0 3em 0 rgb(197, 186, 29), inset 0 0 7em 0 rgb(197, 186, 29);
+  border: rgb(250, 255, 0) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(250, 255, 0), inset 0 0 7em 0 rgb(250, 255, 0);
+  opacity: 0.6;
 }
 
 .cuadrado:active {
-  filter: brightness(200%);
+  opacity: 1;
+  transition: opacity 100ms linear;
 }
 
 .cuadrado-activo {
-  filter: brightness(200%);
+  opacity: 1;
+  transition: opacity 100ms linear;
 }
 
 .oculto {
-  display: none;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 400ms linear;
+  height: auto;
 }
 
 h1 {
@@ -76,6 +90,7 @@ h1 {
   color: rgb(223, 27, 203);
   border: rgb(223, 27, 203) 0.125em solid;
   padding: 0.25em 1em;
+  margin: 0.5em;
   border-radius: 0.25em;
   text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
   box-shadow: 0 0 0.5em 0 rgb(223, 27, 203), inset 0 0 0.5em 0 rgb(223, 27, 203);
@@ -126,7 +141,8 @@ h1 {
 }
 
 .rondas {
-  font-size: 6em;
+  font-size: 5em;
   color: rgb(0, 255, 247);
   text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
+  position: unset;
 }

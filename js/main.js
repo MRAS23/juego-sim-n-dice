@@ -85,6 +85,7 @@ function devuelveResultado() {
     console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
     ocultarTablero();
     mostrarBotonVolverJugar();
+    actualizaMensajeRondas();
   }
 }
 
@@ -137,7 +138,7 @@ function contadorRondas() {
 }
 
 function mostrarBotonJugar() {
-  document.querySelector("#boton-comenzar").className = "";
+  document.querySelector("#boton-comenzar").className = "visible";
 }
 
 function ocultarBotonJugar() {
@@ -153,7 +154,7 @@ function ocultarBotonVolverJugar() {
 }
 
 function mostrarTablero() {
-  document.querySelector("#simon").className = " ";
+  document.querySelector("#simon").className = "visible";
 }
 
 function ocultarTablero() {
@@ -168,3 +169,9 @@ document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
 
   event.preventDefault();
 };
+
+function actualizaMensajeRondas() {
+  let cantidadrondas = document.querySelector(".rondas").innerHTML;
+  let rondas = document.querySelector(".rondas");
+  rondas.innerHTML = `Llegaste hasta la ronda #${cantidadrondas}!`;
+}
