@@ -2,7 +2,9 @@ body {
   display: inline-grid;
   place-items: center;
   width: 100%;
-  background-color: lightgray;
+  background-color: rgb(21, 15, 56);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: rgb(95, 73, 206);
 }
 
 .simon {
@@ -48,4 +50,22 @@ body {
 
 .oculto {
   display: none;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+.boton-neon {
+  background-color: transparent;
+  font-size: 4rem;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(223, 27, 203);
+  border: currentColor 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
+  box-shadow: 0 0 0.5em 0 currentColor, inset 0 0 0.5em 0 currentColor;
 }

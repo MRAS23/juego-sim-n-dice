@@ -26,6 +26,7 @@ function generaSecuenciaPC() {
 }
 
 function iniciaJuego() {
+  mostrarTablero();
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML = 0;
   generaSecuenciaPC();
@@ -34,7 +35,10 @@ function iniciaJuego() {
 }
 
 document.querySelector("#boton-comenzar").onclick = function (event) {
-  iniciaJuego();
+  setTimeout(() => {
+    iniciaJuego();
+  }, 500);
+  //iniciaJuego();
 
   event.preventDefault();
 };
@@ -146,6 +150,14 @@ function mostrarBotonVolverJugar() {
 
 function ocultarBotonVolverJugar() {
   document.querySelector("#boton-volver-a-jugar").className = "oculto";
+}
+
+function mostrarTablero() {
+  document.querySelector("#simon").className = " ";
+}
+
+function ocultarTablero() {
+  document.querySelector("#simon").className = "oculto";
 }
 
 document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
