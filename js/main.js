@@ -56,14 +56,6 @@ $cuadradoAmarillo.addEventListener("click", () => generaSecuenciaJugador(4));
 let contadorClicks = 0;
 
 function generaSecuenciaJugador(color) {
-  /*  for (let i = 0; i < secuenciaPC.length; i++) {
-    if (comparaColoresArray(secuenciaJugador[i], secuenciaPC[i])) {
-      contadorCoincidencias++;
-    } else {
-      reiniciaJuego();
-    }
-  } */
-
   if (color === 1) {
     secuenciaJugador.push("rojo");
   } else if (color === 2) {
@@ -83,24 +75,8 @@ function generaSecuenciaJugador(color) {
     reiniciaJuego();
   }
 
-  //devuelveResultado();
-
   return false;
 }
-
-/* function devuelveResultado() {
-  let contadorCoincidencias = 0;
-  for (let i = 0; i < secuenciaPC.length; i++) {
-    if (comparaColoresArray(secuenciaJugador[i], secuenciaPC[i])) {
-      contadorCoincidencias++;
-    } else {
-      reiniciaJuego();
-    }
-  }
-  if (contadorCoincidencias === secuenciaPC.length) {
-    siguienteRonda();
-  }
-} */
 
 function siguienteRonda() {
   console.log("Correcto!");
@@ -111,7 +87,7 @@ function siguienteRonda() {
 }
 
 function reiniciaJuego() {
-  console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
+  console.log("Incorrecto!");
   ocultarTablero();
   mostrarBotonVolverJugar();
   actualizaMensajeRondas();
