@@ -2,7 +2,9 @@ body {
   display: inline-grid;
   place-items: center;
   width: 100%;
-  background-color: lightgray;
+  background-color: rgb(21, 15, 56);
+  font-family: "Orbitron", sans-serif;
+  color: rgb(95, 73, 206);
 }
 
 .simon {
@@ -17,35 +19,130 @@ body {
 
 .cuadrado {
   border-radius: 10px;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   cursor: pointer;
 }
 
 .rojo {
-  background-color: rgba(200, 0, 0);
+  background-color: transparent;
+  border: rgb(255, 0, 92) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(255, 0, 92), inset 0 0 7em 0 rgb(255, 0, 92);
+  opacity: 0.6;
 }
 
 .azul {
-  background-color: rgb(0, 0, 130);
+  background-color: transparent;
+  border: rgb(0, 111, 255) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(0, 111, 255), inset 0 0 7em 0 rgb(0, 111, 255);
+  opacity: 0.6;
 }
 
 .verde {
-  background-color: rgb(0, 150, 0);
+  background-color: transparent;
+  border: rgb(104, 255, 0) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(104, 255, 0), inset 0 0 7em 0 rgb(104, 255, 0);
+  opacity: 0.6;
 }
 
 .amarillo {
-  background-color: rgb(200, 200, 0);
+  background-color: transparent;
+  border: rgb(250, 255, 0) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(250, 255, 0), inset 0 0 7em 0 rgb(250, 255, 0);
+  opacity: 0.6;
 }
 
 .cuadrado:active {
-  filter: brightness(200%);
+  opacity: 1;
+  transition: opacity 100ms linear;
 }
 
 .cuadrado-activo {
-  filter: brightness(200%);
+  opacity: 1;
+  transition: opacity 100ms linear;
 }
 
 .oculto {
-  display: none;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 400ms linear;
+  height: auto;
+}
+
+h1 {
+  font-size: 7rem;
+  color: rgb(0, 255, 247);
+  text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
+}
+
+.boton-neon {
+  font-family: "Orbitron", sans-serif;
+  background-color: transparent;
+  font-size: 3.5rem;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(223, 27, 203);
+  border: rgb(223, 27, 203) 0.125em solid;
+  padding: 0.25em 1em;
+  margin: 0.5em;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
+  box-shadow: 0 0 0.5em 0 rgb(223, 27, 203), inset 0 0 0.5em 0 rgb(223, 27, 203);
+
+  position: relative;
+}
+
+.boton-neon::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background-color: rgb(223, 27, 203);
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.45);
+  filter: blur(1em);
+  opacity: 0.7;
+}
+
+.boton-neon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 1em 0.5em rgb(223, 27, 203);
+  opacity: 0;
+  background-color: rgb(223, 27, 203);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.boton-neon:hover {
+  color: rgb(21, 15, 56);
+  text-shadow: none;
+}
+
+.boton-neon:hover::before {
+  opacity: 1;
+}
+
+.boton-neon:hover::after {
+  opacity: 1;
+}
+
+.rondas {
+  font-size: 5em;
+  color: rgb(0, 255, 247);
+  text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
+  position: unset;
 }

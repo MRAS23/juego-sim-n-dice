@@ -5,33 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juego Simón Dice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
-      <ul>
-        <li>
-          <h1>Simón Dice</h1>
-        </li>
-      </ul>
+      <h1>Simón Dice</h1>
     </header>
     <section>
-      <div id="simon" class="simon">
-        <div class="tittle">Simón Dice</div>
-        <button id="boton-comenzar">Jugar</button>
+      <div id="simon" class="oculto">
         <div class="contenedor-botones">
           <div class="cuadrado rojo"></div>
           <div class="cuadrado azul"></div>
           <div class="cuadrado verde"></div>
           <div class="cuadrado amarillo"></div>
-          <button id="boton-volver-a-jugar" class="oculto">Volver a Jugar</button>
         </div>
       </div>
     </section>
+
     <section>
-      <div class="tablero">
+      <button id="boton-comenzar" class="boton-neon">Jugar</button>
+    </section>
+
+    <section>
+      <div class="puntuacion">
         <div class="rondas"></div>
       </div>
+    </section>
+
+    <section>
+      <button id="boton-volver-a-jugar" class="oculto">Volver a Jugar</button>
     </section>
     <footer></footer>
     <script src="js/main.js"></script>

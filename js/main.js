@@ -26,6 +26,7 @@ function generaSecuenciaPC() {
 }
 
 function iniciaJuego() {
+  mostrarTablero();
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML = 0;
   generaSecuenciaPC();
@@ -34,7 +35,9 @@ function iniciaJuego() {
 }
 
 document.querySelector("#boton-comenzar").onclick = function (event) {
-  iniciaJuego();
+  setTimeout(() => {
+    iniciaJuego();
+  }, 500);
 
   event.preventDefault();
 };
@@ -80,7 +83,9 @@ function devuelveResultado() {
     secuenciaJugador = [];
   } else if (secuenciaJugador.length === secuenciaPC.length) {
     console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
+    ocultarTablero();
     mostrarBotonVolverJugar();
+    actualizaMensajeRondas();
   }
 }
 
@@ -133,7 +138,7 @@ function contadorRondas() {
 }
 
 function mostrarBotonJugar() {
-  document.querySelector("#boton-comenzar").className = "";
+  document.querySelector("#boton-comenzar").className = "visible";
 }
 
 function ocultarBotonJugar() {
@@ -141,11 +146,19 @@ function ocultarBotonJugar() {
 }
 
 function mostrarBotonVolverJugar() {
-  document.querySelector("#boton-volver-a-jugar").className = "";
+  document.querySelector("#boton-volver-a-jugar").className = "boton-neon";
 }
 
 function ocultarBotonVolverJugar() {
   document.querySelector("#boton-volver-a-jugar").className = "oculto";
+}
+
+function mostrarTablero() {
+  document.querySelector("#simon").className = "visible";
+}
+
+function ocultarTablero() {
+  document.querySelector("#simon").className = "oculto";
 }
 
 document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
@@ -156,3 +169,9 @@ document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
 
   event.preventDefault();
 };
+
+function actualizaMensajeRondas() {
+  let cantidadrondas = document.querySelector(".rondas").innerHTML;
+  let rondas = document.querySelector(".rondas");
+  rondas.innerHTML = `Llegaste hasta la ronda #${cantidadrondas}!`;
+}
