@@ -3,7 +3,7 @@ body {
   place-items: center;
   width: 100%;
   background-color: rgb(21, 15, 56);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Orbitron", sans-serif;
   color: rgb(95, 73, 206);
 }
 
@@ -53,10 +53,13 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 8rem;
+  color: rgb(0, 255, 247);
+  text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
 }
 
 .boton-neon {
+  font-family: "Orbitron", sans-serif;
   background-color: transparent;
   font-size: 4rem;
   display: inline-block;
