@@ -92,6 +92,7 @@ function reiniciaJuego() {
   mostrarBotonVolverJugar();
   actualizaMensajeRondas();
   contadorClicks = 0;
+  ocultarTitulo();
 }
 
 function comparaColoresArray(color1, color2) {
@@ -166,7 +167,16 @@ function ocultarTablero() {
   document.querySelector("#simon").className = "oculto";
 }
 
+function mostrarTitulo() {
+  document.querySelector("h1").className = " ";
+}
+
+function ocultarTitulo() {
+  document.querySelector("h1").className = "oculto";
+}
+
 document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
+  mostrarTitulo();
   secuenciaJugador = [];
   secuenciaPC = [];
   iniciaJuego();
