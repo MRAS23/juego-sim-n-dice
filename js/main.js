@@ -69,7 +69,9 @@ function generaSecuenciaJugador(color) {
   if (comparaColoresArray(secuenciaJugador[contadorClicks], secuenciaPC[contadorClicks])) {
     contadorClicks++;
     if (contadorClicks === secuenciaPC.length) {
-      siguienteRonda();
+      setTimeout(() => {
+        siguienteRonda();
+      }, 300);
     }
   } else {
     reiniciaJuego();
@@ -105,24 +107,28 @@ function comparaColoresArray(color1, color2) {
 
 function activarCuadrado(color) {
   if (color === "rojo") {
+    reproduceSonido(color);
     $cuadradoRojo.classList.add("cuadrado-activo");
     setTimeout(() => {
       $cuadradoRojo.classList.remove("cuadrado-activo");
     }, 300);
   }
   if (color === "azul") {
+    reproduceSonido(color);
     $cuadradoAzul.classList.add("cuadrado-activo");
     setTimeout(() => {
       $cuadradoAzul.classList.remove("cuadrado-activo");
     }, 300);
   }
   if (color === "verde") {
+    reproduceSonido(color);
     $cuadradoVerde.classList.add("cuadrado-activo");
     setTimeout(() => {
       $cuadradoVerde.classList.remove("cuadrado-activo");
     }, 300);
   }
   if (color === "amarillo") {
+    reproduceSonido(color);
     $cuadradoAmarillo.classList.add("cuadrado-activo");
     setTimeout(() => {
       $cuadradoAmarillo.classList.remove("cuadrado-activo");
@@ -186,7 +192,25 @@ document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
 };
 
 function actualizaMensajeRondas() {
-  let cantidadrondas = document.querySelector(".rondas").innerHTML;
+  let cantidadRondas = document.querySelector(".rondas").innerHTML;
   let rondas = document.querySelector(".rondas");
-  rondas.innerHTML = `Llegaste hasta la ronda #${cantidadrondas}!`;
+  rondas.innerHTML = `Llegaste hasta la ronda #${cantidadRondas}!`;
 }
+
+var sonidos = {
+  rojo: new Audio("sonidos/simonSound1.mp3"),
+  azul: new Audio("sonidos/simonSound2.mp3"),
+  verde: new Audio("sonidos/simonSound3.mp3"),
+  amarillo: new Audio("sonidos/simonSound4.mp3"),
+  error: new Audio(),
+};
+
+function reproduceSonido(color) {
+  sonidos[color].currentTime = 0;
+  sonidos[color].play();
+}
+
+$cuadradoRojo.addEventListener("click", () => reproduceSonido($cuadradoRojo.id));
+$cuadradoAzul.addEventListener("click", () => reproduceSonido($cuadradoAzul.id));
+$cuadradoVerde.addEventListener("click", () => reproduceSonido($cuadradoVerde.id));
+$cuadradoAmarillo.addEventListener("click", () => reproduceSonido($cuadradoAmarillo.id));
