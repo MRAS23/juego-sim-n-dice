@@ -53,7 +53,17 @@ $cuadradoAzul.addEventListener("click", () => generaSecuenciaJugador(2));
 $cuadradoVerde.addEventListener("click", () => generaSecuenciaJugador(3));
 $cuadradoAmarillo.addEventListener("click", () => generaSecuenciaJugador(4));
 
+let contadorClicks = 0;
+
 function generaSecuenciaJugador(color) {
+  /*  for (let i = 0; i < secuenciaPC.length; i++) {
+    if (comparaColoresArray(secuenciaJugador[i], secuenciaPC[i])) {
+      contadorCoincidencias++;
+    } else {
+      reiniciaJuego();
+    }
+  } */
+
   if (color === 1) {
     secuenciaJugador.push("rojo");
   } else if (color === 2) {
@@ -64,29 +74,48 @@ function generaSecuenciaJugador(color) {
     secuenciaJugador.push("amarillo");
   }
 
-  devuelveResultado();
+  if (comparaColoresArray(secuenciaJugador[contadorClicks], secuenciaPC[contadorClicks])) {
+    contadorClicks++;
+    if (contadorClicks === secuenciaPC.length) {
+      siguienteRonda();
+    }
+  } else {
+    reiniciaJuego();
+  }
+
+  //devuelveResultado();
 
   return false;
 }
 
-function devuelveResultado() {
+/* function devuelveResultado() {
   let contadorCoincidencias = 0;
   for (let i = 0; i < secuenciaPC.length; i++) {
     if (comparaColoresArray(secuenciaJugador[i], secuenciaPC[i])) {
       contadorCoincidencias++;
+    } else {
+      reiniciaJuego();
     }
   }
   if (contadorCoincidencias === secuenciaPC.length) {
-    console.log("Correcto!");
-    contadorRondas();
-    generaSecuenciaPC();
-    secuenciaJugador = [];
-  } else if (secuenciaJugador.length === secuenciaPC.length) {
-    console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
-    ocultarTablero();
-    mostrarBotonVolverJugar();
-    actualizaMensajeRondas();
+    siguienteRonda();
   }
+} */
+
+function siguienteRonda() {
+  console.log("Correcto!");
+  contadorRondas();
+  generaSecuenciaPC();
+  secuenciaJugador = [];
+  contadorClicks = 0;
+}
+
+function reiniciaJuego() {
+  console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
+  ocultarTablero();
+  mostrarBotonVolverJugar();
+  actualizaMensajeRondas();
+  contadorClicks = 0;
 }
 
 function comparaColoresArray(color1, color2) {
