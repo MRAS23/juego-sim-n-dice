@@ -19,25 +19,33 @@ body {
 
 .cuadrado {
   border-radius: 10px;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   cursor: pointer;
 }
 
 .rojo {
-  background-color: rgba(200, 0, 0);
+  background-color: transparent;
+  border: rgb(166, 0, 0) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(166, 0, 0), inset 0 0 7em 0 rgb(166, 0, 0);
 }
 
 .azul {
-  background-color: rgb(0, 0, 130);
+  background-color: transparent;
+  border: rgb(0, 20, 131) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(0, 20, 131), inset 0 0 7em 0 rgb(0, 20, 131);
 }
 
 .verde {
-  background-color: rgb(0, 150, 0);
+  background-color: transparent;
+  border: rgb(12, 137, 0) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(12, 137, 0), inset 0 0 7em 0 rgb(12, 137, 0);
 }
 
 .amarillo {
-  background-color: rgb(200, 200, 0);
+  background-color: transparent;
+  border: rgb(197, 186, 29) 0.5em solid;
+  box-shadow: 0 0 3em 0 rgb(197, 186, 29), inset 0 0 7em 0 rgb(197, 186, 29);
 }
 
 .cuadrado:active {
