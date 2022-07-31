@@ -186,7 +186,7 @@ document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
 };
 
 function actualizaMensajeRondas() {
-  let cantidadrondas = document.querySelector(".rondas").innerHTML;
+  let cantidadRondas = document.querySelector(".rondas").innerHTML;
   let rondas = document.querySelector(".rondas");
-  rondas.innerHTML = `Llegaste hasta la ronda #${cantidadrondas}!`;
+  rondas.innerHTML = `Llegaste hasta la ronda #${cantidadRondas}!`;
 }
