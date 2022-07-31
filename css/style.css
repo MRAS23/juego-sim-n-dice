@@ -61,7 +61,7 @@ h1 {
 .boton-neon {
   font-family: "Orbitron", sans-serif;
   background-color: transparent;
-  font-size: 4rem;
+  font-size: 3.5rem;
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
@@ -115,4 +115,10 @@ h1 {
 
 .boton-neon:hover::after {
   opacity: 1;
+}
+
+.rondas {
+  font-size: 6em;
+  color: rgb(0, 255, 247);
+  text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
 }

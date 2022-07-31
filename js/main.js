@@ -38,7 +38,6 @@ document.querySelector("#boton-comenzar").onclick = function (event) {
   setTimeout(() => {
     iniciaJuego();
   }, 500);
-  //iniciaJuego();
 
   event.preventDefault();
 };
@@ -84,6 +83,7 @@ function devuelveResultado() {
     secuenciaJugador = [];
   } else if (secuenciaJugador.length === secuenciaPC.length) {
     console.log("Incorrecto!"); //esto deberia reemplazarse por un cartel de error y boton volver a empezar
+    ocultarTablero();
     mostrarBotonVolverJugar();
   }
 }
