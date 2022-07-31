@@ -145,7 +145,7 @@ function ocultarBotonJugar() {
 }
 
 function mostrarBotonVolverJugar() {
-  document.querySelector("#boton-volver-a-jugar").className = "";
+  document.querySelector("#boton-volver-a-jugar").className = "boton-neon";
 }
 
 function ocultarBotonVolverJugar() {
