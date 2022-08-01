@@ -1,33 +1,18 @@
-function generarNumeroAleatorio() {
-  return Math.round(Math.random() * (4 - 1) + 1);
-}
-
 let secuenciaPC = [];
 
-function generarSecuenciaPC() {
-  let nuevoElementoSecuenciaPC = generarNumeroAleatorio();
+const colores = ["rojo", "azul", "verde", "amarillo"];
 
-  if (nuevoElementoSecuenciaPC === 1) {
-    secuenciaPC.push("rojo");
-  } else if (nuevoElementoSecuenciaPC === 2) {
-    secuenciaPC.push("azul");
-  } else if (nuevoElementoSecuenciaPC === 3) {
-    secuenciaPC.push("verde");
-  } else if (nuevoElementoSecuenciaPC === 4) {
-    secuenciaPC.push("amarillo");
-  }
-  reproducirSecuenciaPC();
-
-  return secuenciaPC;
+function obtenerColorAleatorio() {
+  return secuenciaPC.push(colores[Math.round(Math.random() * 3)]);
 }
 
 function iniciaJuego() {
   mostrarTablero();
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML = 0;
-  generarSecuenciaPC();
+  obtenerColorAleatorio();
+  reproducirSecuenciaPC();
   ocultarBotonJugar();
-  console.log(secuenciaPC);
 }
 
 document.querySelector("#boton-comenzar").onclick = function (event) {
@@ -79,7 +64,8 @@ function generarSecuenciaJugador(color) {
 function siguienteRonda() {
   console.log("Correcto!");
   contadorRondas();
-  generarSecuenciaPC();
+  obtenerColorAleatorio();
+  reproducirSecuenciaPC();
   secuenciaJugador = [];
   contadorClicks = 0;
 }
