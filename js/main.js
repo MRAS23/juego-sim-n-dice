@@ -6,7 +6,7 @@ function obtenerColorAleatorio() {
   return secuenciaPC.push(colores[Math.round(Math.random() * 3)]);
 }
 
-function iniciaJuego() {
+function iniciarJuego() {
   mostrarTablero();
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML = 0;
@@ -19,7 +19,7 @@ document.querySelector("#boton-comenzar").onclick = function (event) {
   event.preventDefault();
 
   setTimeout(() => {
-    iniciaJuego();
+    iniciarJuego();
   }, 500);
 };
 
@@ -57,21 +57,21 @@ function manejarSecuenciaJugador(color) {
       }, 300);
     }
   } else {
-    reiniciaJuego();
+    reiniciarJuego();
   }
 
   return false;
 }
 
 function siguienteRonda() {
-  contadorRondas();
+  contarRondas();
   obtenerColorAleatorio();
   reproducirSecuenciaPC();
   secuenciaJugador = [];
   contadorClicks = 0;
 }
 
-function reiniciaJuego() {
+function reiniciarJuego() {
   ocultarTablero();
   mostrarBotonVolverJugar();
   actualizaMensajeRondas();
@@ -90,7 +90,7 @@ function comparaColoresArray(color1, color2) {
 function activarCuadrado(color) {
   for (let i = 0; i < $cuadrado.length; i++) {
     if (color === colores[i]) {
-      reproduceSonido(color);
+      reproducirSonido(color);
       $cuadrado[i].classList.add("cuadrado-activo");
       setTimeout(() => {
         $cuadrado[i].classList.remove("cuadrado-activo");
@@ -107,7 +107,7 @@ function reproducirSecuenciaPC() {
   }
 }
 
-function contadorRondas() {
+function contarRondas() {
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML++;
 }
@@ -154,7 +154,7 @@ document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
   ocultarBotonVolverJugar();
 };
 
-function actualizaMensajeRondas() {
+function actualizarMensajeRondas() {
   let cantidadRondas = document.querySelector(".rondas").innerHTML;
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML = `Llegaste hasta la ronda #${cantidadRondas}!`;
@@ -167,11 +167,11 @@ let sonidos = {
   amarillo: new Audio("sonidos/simonSound4.mp3"),
 };
 
-function reproduceSonido(color) {
+function reproducirSonido(color) {
   sonidos[color].currentTime = 0;
   sonidos[color].play();
 }
 
 for (let i = 0; i < $cuadrado.length; i++) {
-  $cuadrado[i].addEventListener("click", () => reproduceSonido(colores[i]));
+  $cuadrado[i].addEventListener("click", () => reproducirSonido(colores[i]));
 }
