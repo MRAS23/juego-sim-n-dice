@@ -35,11 +35,11 @@ function iniciaJuego() {
 }
 
 document.querySelector("#boton-comenzar").onclick = function (event) {
+  event.preventDefault();
+
   setTimeout(() => {
     iniciaJuego();
   }, 500);
-
-  event.preventDefault();
 };
 
 let secuenciaJugador = [];
@@ -182,13 +182,13 @@ function ocultarTitulo() {
 }
 
 document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
+  event.preventDefault();
+
   mostrarTitulo();
   secuenciaJugador = [];
   secuenciaPC = [];
   iniciaJuego();
   ocultarBotonVolverJugar();
-
-  event.preventDefault();
 };
 
 function actualizaMensajeRondas() {
