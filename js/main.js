@@ -29,14 +29,14 @@ let $cuadradoRojo = document.querySelector(".rojo");
 let $cuadradoAzul = document.querySelector(".azul");
 let $cuadradoVerde = document.querySelector(".verde");
 let $cuadradoAmarillo = document.querySelector(".amarillo");
-$cuadradoRojo.addEventListener("click", () => generarSecuenciaJugador(1));
-$cuadradoAzul.addEventListener("click", () => generarSecuenciaJugador(2));
-$cuadradoVerde.addEventListener("click", () => generarSecuenciaJugador(3));
-$cuadradoAmarillo.addEventListener("click", () => generarSecuenciaJugador(4));
+$cuadradoRojo.addEventListener("click", () => manejarSecuenciaJugador(1));
+$cuadradoAzul.addEventListener("click", () => manejarSecuenciaJugador(2));
+$cuadradoVerde.addEventListener("click", () => manejarSecuenciaJugador(3));
+$cuadradoAmarillo.addEventListener("click", () => manejarSecuenciaJugador(4));
 
 let contadorClicks = 0;
 
-function generarSecuenciaJugador(color) {
+function manejarSecuenciaJugador(color) {
   if (color === 1) {
     secuenciaJugador.push("rojo");
   } else if (color === 2) {
