@@ -25,25 +25,27 @@ document.querySelector("#boton-comenzar").onclick = function (event) {
 
 let secuenciaJugador = [];
 
-let $cuadradoRojo = document.querySelector(".rojo");
-let $cuadradoAzul = document.querySelector(".azul");
-let $cuadradoVerde = document.querySelector(".verde");
-let $cuadradoAmarillo = document.querySelector(".amarillo");
-$cuadradoRojo.addEventListener("click", () => manejarSecuenciaJugador(1));
+/* $cuadradoRojo.addEventListener("click", () => manejarSecuenciaJugador(1));
 $cuadradoAzul.addEventListener("click", () => manejarSecuenciaJugador(2));
 $cuadradoVerde.addEventListener("click", () => manejarSecuenciaJugador(3));
-$cuadradoAmarillo.addEventListener("click", () => manejarSecuenciaJugador(4));
+$cuadradoAmarillo.addEventListener("click", () => manejarSecuenciaJugador(4)); */
+
+let $cuadrado = document.querySelectorAll(".cuadrado");
+
+for (let i = 0; i < $cuadrado.length; i++) {
+  $cuadrado[i].addEventListener("click", () => manejarSecuenciaJugador(i));
+}
 
 let contadorClicks = 0;
 
 function manejarSecuenciaJugador(color) {
-  if (color === 1) {
+  if (color === 0) {
     secuenciaJugador.push("rojo");
-  } else if (color === 2) {
+  } else if (color === 1) {
     secuenciaJugador.push("azul");
-  } else if (color === 3) {
+  } else if (color === 2) {
     secuenciaJugador.push("verde");
-  } else if (color === 4) {
+  } else if (color === 3) {
     secuenciaJugador.push("amarillo");
   }
 
@@ -88,33 +90,14 @@ function comparaColoresArray(color1, color2) {
 }
 
 function activarCuadrado(color) {
-  if (color === "rojo") {
-    reproduceSonido(color);
-    $cuadradoRojo.classList.add("cuadrado-activo");
-    setTimeout(() => {
-      $cuadradoRojo.classList.remove("cuadrado-activo");
-    }, 300);
-  }
-  if (color === "azul") {
-    reproduceSonido(color);
-    $cuadradoAzul.classList.add("cuadrado-activo");
-    setTimeout(() => {
-      $cuadradoAzul.classList.remove("cuadrado-activo");
-    }, 300);
-  }
-  if (color === "verde") {
-    reproduceSonido(color);
-    $cuadradoVerde.classList.add("cuadrado-activo");
-    setTimeout(() => {
-      $cuadradoVerde.classList.remove("cuadrado-activo");
-    }, 300);
-  }
-  if (color === "amarillo") {
-    reproduceSonido(color);
-    $cuadradoAmarillo.classList.add("cuadrado-activo");
-    setTimeout(() => {
-      $cuadradoAmarillo.classList.remove("cuadrado-activo");
-    }, 300);
+  for (let i = 0; i < $cuadrado.length; i++) {
+    if (color === colores[i]) {
+      reproduceSonido(color);
+      $cuadrado[i].classList.add("cuadrado-activo");
+      setTimeout(() => {
+        $cuadrado[i].classList.remove("cuadrado-activo");
+      }, 300);
+    }
   }
 }
 
@@ -179,12 +162,11 @@ function actualizaMensajeRondas() {
   rondas.innerHTML = `Llegaste hasta la ronda #${cantidadRondas}!`;
 }
 
-var sonidos = {
+let sonidos = {
   rojo: new Audio("sonidos/simonSound1.mp3"),
   azul: new Audio("sonidos/simonSound2.mp3"),
   verde: new Audio("sonidos/simonSound3.mp3"),
   amarillo: new Audio("sonidos/simonSound4.mp3"),
-  error: new Audio(),
 };
 
 function reproduceSonido(color) {
@@ -192,7 +174,6 @@ function reproduceSonido(color) {
   sonidos[color].play();
 }
 
-$cuadradoRojo.addEventListener("click", () => reproduceSonido($cuadradoRojo.id));
-$cuadradoAzul.addEventListener("click", () => reproduceSonido($cuadradoAzul.id));
-$cuadradoVerde.addEventListener("click", () => reproduceSonido($cuadradoVerde.id));
-$cuadradoAmarillo.addEventListener("click", () => reproduceSonido($cuadradoAmarillo.id));
+for (let i = 0; i < $cuadrado.length; i++) {
+  $cuadrado[i].addEventListener("click", () => reproduceSonido(colores[i]));
+}
