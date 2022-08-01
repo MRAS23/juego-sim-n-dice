@@ -1,15 +1,11 @@
-function generaNumeroAleatorio() {
-  let numeroAleatorio = Math.round(Math.random() * (4 - 1) + 1);
-
-  return numeroAleatorio;
+function generarNumeroAleatorio() {
+  return Math.round(Math.random() * (4 - 1) + 1);
 }
-
-console.log(generaNumeroAleatorio());
 
 let secuenciaPC = [];
 
-function generaSecuenciaPC() {
-  let nuevoElementoSecuenciaPC = generaNumeroAleatorio();
+function generarSecuenciaPC() {
+  let nuevoElementoSecuenciaPC = generarNumeroAleatorio();
 
   if (nuevoElementoSecuenciaPC === 1) {
     secuenciaPC.push("rojo");
@@ -29,7 +25,7 @@ function iniciaJuego() {
   mostrarTablero();
   let rondas = document.querySelector(".rondas");
   rondas.innerHTML = 0;
-  generaSecuenciaPC();
+  generarSecuenciaPC();
   ocultarBotonJugar();
   console.log(secuenciaPC);
 }
@@ -48,14 +44,14 @@ let $cuadradoRojo = document.querySelector(".rojo");
 let $cuadradoAzul = document.querySelector(".azul");
 let $cuadradoVerde = document.querySelector(".verde");
 let $cuadradoAmarillo = document.querySelector(".amarillo");
-$cuadradoRojo.addEventListener("click", () => generaSecuenciaJugador(1));
-$cuadradoAzul.addEventListener("click", () => generaSecuenciaJugador(2));
-$cuadradoVerde.addEventListener("click", () => generaSecuenciaJugador(3));
-$cuadradoAmarillo.addEventListener("click", () => generaSecuenciaJugador(4));
+$cuadradoRojo.addEventListener("click", () => generarSecuenciaJugador(1));
+$cuadradoAzul.addEventListener("click", () => generarSecuenciaJugador(2));
+$cuadradoVerde.addEventListener("click", () => generarSecuenciaJugador(3));
+$cuadradoAmarillo.addEventListener("click", () => generarSecuenciaJugador(4));
 
 let contadorClicks = 0;
 
-function generaSecuenciaJugador(color) {
+function generarSecuenciaJugador(color) {
   if (color === 1) {
     secuenciaJugador.push("rojo");
   } else if (color === 2) {
@@ -83,7 +79,7 @@ function generaSecuenciaJugador(color) {
 function siguienteRonda() {
   console.log("Correcto!");
   contadorRondas();
-  generaSecuenciaPC();
+  generarSecuenciaPC();
   secuenciaJugador = [];
   contadorClicks = 0;
 }
