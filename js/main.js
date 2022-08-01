@@ -181,14 +181,8 @@ for (let i = 0; i < $cuadrado.length; i++) {
 let $tablero = document.querySelector("#simon");
 function deshabilitarBotones() {
   $tablero.id = "cuadrado-inactivo";
-  /* for (let i = 0; i < $cuadrado.length; i++) {
-    $cuadrado[i].id = "cuadrado-inactivo";
-  } */
 }
 
 function habilitarBotones() {
-  /* for (let i = 0; i < $cuadrado.length; i++) {
-    $cuadrado[i].id = " ";
-  } */
   $tablero.id = "simon";
 }
