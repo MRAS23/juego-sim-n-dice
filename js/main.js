@@ -64,7 +64,6 @@ function manejarSecuenciaJugador(color) {
 }
 
 function siguienteRonda() {
-  console.log("Correcto!");
   contadorRondas();
   obtenerColorAleatorio();
   reproducirSecuenciaPC();
@@ -73,7 +72,6 @@ function siguienteRonda() {
 }
 
 function reiniciaJuego() {
-  console.log("Incorrecto!");
   ocultarTablero();
   mostrarBotonVolverJugar();
   actualizaMensajeRondas();
