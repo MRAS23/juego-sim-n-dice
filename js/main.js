@@ -25,11 +25,6 @@ document.querySelector("#boton-comenzar").onclick = function (event) {
 
 let secuenciaJugador = [];
 
-/* $cuadradoRojo.addEventListener("click", () => manejarSecuenciaJugador(1));
-$cuadradoAzul.addEventListener("click", () => manejarSecuenciaJugador(2));
-$cuadradoVerde.addEventListener("click", () => manejarSecuenciaJugador(3));
-$cuadradoAmarillo.addEventListener("click", () => manejarSecuenciaJugador(4)); */
-
 let $cuadrado = document.querySelectorAll(".cuadrado");
 
 for (let i = 0; i < $cuadrado.length; i++) {
@@ -74,7 +69,7 @@ function siguienteRonda() {
 function reiniciarJuego() {
   ocultarTablero();
   mostrarBotonVolverJugar();
-  actualizaMensajeRondas();
+  actualizarMensajeRondas();
   contadorClicks = 0;
   ocultarTitulo();
 }
@@ -88,7 +83,7 @@ function comparaColoresArray(color1, color2) {
 }
 
 function activarCuadrado(color) {
-  for (let i = 0; i < $cuadrado.length; i++) {
+  for (let i = 0; i < colores.length; i++) {
     if (color === colores[i]) {
       reproducirSonido(color);
       $cuadrado[i].classList.add("cuadrado-activo");
@@ -100,10 +95,17 @@ function activarCuadrado(color) {
 }
 
 function reproducirSecuenciaPC() {
+  deshabilitarBotones();
   for (let i = 0; i < secuenciaPC.length; i++) {
     setTimeout(() => {
       activarCuadrado(secuenciaPC[i]);
     }, (i + 1) * 600);
+
+    if (i === secuenciaPC.length - 1) {
+      setTimeout(() => {
+        habilitarBotones();
+      }, (i + 1) * 600);
+    }
   }
 }
 
@@ -150,7 +152,7 @@ document.querySelector("#boton-volver-a-jugar").onclick = function (event) {
   mostrarTitulo();
   secuenciaJugador = [];
   secuenciaPC = [];
-  iniciaJuego();
+  iniciarJuego();
   ocultarBotonVolverJugar();
 };
 
@@ -174,4 +176,19 @@ function reproducirSonido(color) {
 
 for (let i = 0; i < $cuadrado.length; i++) {
   $cuadrado[i].addEventListener("click", () => reproducirSonido(colores[i]));
+}
+
+let $tablero = document.querySelector("#simon");
+function deshabilitarBotones() {
+  $tablero.id = "cuadrado-inactivo";
+  /* for (let i = 0; i < $cuadrado.length; i++) {
+    $cuadrado[i].id = "cuadrado-inactivo";
+  } */
+}
+
+function habilitarBotones() {
+  /* for (let i = 0; i < $cuadrado.length; i++) {
+    $cuadrado[i].id = " ";
+  } */
+  $tablero.id = "simon";
 }
