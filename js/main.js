@@ -49,7 +49,7 @@ function manejarSecuenciaJugador(color) {
     if (contadorClicks === secuenciaPC.length) {
       setTimeout(() => {
         siguienteRonda();
-      }, 300);
+      }, 1000);
     }
   } else {
     reiniciarJuego();
