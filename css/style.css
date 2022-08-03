@@ -59,7 +59,7 @@ body {
 
 .cuadrado-activo {
   opacity: 1;
-  transition: opacity 50ms linear;
+  transition: opacity 300ms linear;
 }
 
 .oculto {
@@ -145,4 +145,8 @@ h1 {
   color: rgb(0, 255, 247);
   text-shadow: 0 0 0.125em hsl(0, 0%, 70%), 0 0 0.25em currentColor;
   position: unset;
+}
+
+#cuadrado-inactivo {
+  pointer-events: none;
 }
