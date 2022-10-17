@@ -163,10 +163,10 @@ function actualizarMensajeRondas() {
 }
 
 let sonidos = {
-  rojo: new Audio("sonidos/simonSound1.mp3"),
-  azul: new Audio("sonidos/simonSound2.mp3"),
-  verde: new Audio("sonidos/simonSound3.mp3"),
-  amarillo: new Audio("sonidos/simonSound4.mp3"),
+  rojo: new Audio("src/sonidos/simonSound1.mp3"),
+  azul: new Audio("src/sonidos/simonSound2.mp3"),
+  verde: new Audio("src/sonidos/simonSound3.mp3"),
+  amarillo: new Audio("src/sonidos/simonSound4.mp3"),
 };
 
 function reproducirSonido(color) {
