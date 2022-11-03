@@ -1,5 +1,3 @@
-/// <reference types="Cypress"/>
-
 const { array } = require("assert-plus");
 
 const URL = "127.0.0.1:5500";
