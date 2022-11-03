@@ -1,4 +1,4 @@
-let secuenciaPC = [];
+window.secuenciaPC = [];
 
 const colores = ["rojo", "azul", "verde", "amarillo"];
 
