@@ -1,4 +1,4 @@
-let secuenciaPC = [];
+window.secuenciaPC = [];
 
 const colores = ["rojo", "azul", "verde", "amarillo"];
 
@@ -115,7 +115,7 @@ function contarRondas() {
 }
 
 function mostrarBotonJugar() {
-  document.querySelector("#boton-comenzar").className = "visible";
+  document.querySelector("#boton-comenzar").className = "boton-neon";
 }
 
 function ocultarBotonJugar() {
