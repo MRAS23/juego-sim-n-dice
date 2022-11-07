@@ -1,10 +1,11 @@
 const { array } = require("assert-plus");
 
-const URL = "127.0.0.1:5500";
+/* const URL = "127.0.0.1:5500"; */
+/* const URL = "/"; */
 
 context("simon-dice", () => {
   before(() => {
-    cy.visit(URL);
+    cy.visit("/");
   });
 
   describe("juega al simon dice", () => {
